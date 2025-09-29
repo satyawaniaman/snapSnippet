@@ -124,7 +124,7 @@ function App() {
       <div className="flex-1 flex items-center justify-center px-4 pb-80 md:pb-40">
         <div className="w-full max-w-[95vw] sm:max-w-[600px] lg:max-w-[800px]">
           <div
-            style={{ padding: Math.min(padding, 32) }}
+            style={{ padding: padding }}
             ref={codeEditorRef}
             className={cn(
               "overflow-hidden rounded-xl shadow-xl border transition-all ease-out",

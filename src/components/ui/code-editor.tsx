@@ -4,6 +4,7 @@ import hljs from "highlight.js";
 import flourite from "flourite";
 import useStore from "@/store/store";
 import { useEffect } from "react";
+import { fonts } from "@/lib/constant";
 
 function CodeEditor() {
   const {
@@ -11,6 +12,7 @@ function CodeEditor() {
     title,
     language,
     fontSize,
+    fontStyle,
     autoDetectLanguage,
     setCode,
     setTitle,
@@ -44,6 +46,9 @@ function CodeEditor() {
     }
   };
 
+  // Get the actual font name from the fontStyle key
+  const currentFont = fonts[fontStyle as keyof typeof fonts]?.name || "JetBrains Mono";
+
   return (
     <div
       className={cn(
@@ -74,7 +79,7 @@ function CodeEditor() {
           highlight={highlightCode}
           padding={8}
           style={{
-            fontFamily: "JetBrains Mono",
+            fontFamily: currentFont,
             fontSize: fontSize,
             lineHeight: 1.4,
           }}
